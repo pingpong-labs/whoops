@@ -1,6 +1,8 @@
 {
     "name": "pingpong/whoops",
-    "description": "",
+    "description": "With this package you can get the whoops errors style like the laravel's style in versions 4.0 and 4.1.",
+    "keywords": ["laravel", "whoops", "pingpong", "errors"],
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Pingpong Labs",
@@ -9,7 +11,8 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "4.2.*"
+        "illuminate/support": "4.2.*",
+        "filp/whoops": ">=1.1.0"
     },
     "autoload": {
         "psr-0": {
