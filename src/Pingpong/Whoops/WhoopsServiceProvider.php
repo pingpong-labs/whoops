@@ -1,5 +1,6 @@
 <?php namespace Pingpong\Whoops;
 
+use Whoops\Handler\PrettyPageHandler;
 use Illuminate\Support\ServiceProvider;
 
 class WhoopsServiceProvider extends ServiceProvider {
@@ -18,7 +19,12 @@ class WhoopsServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->app['whoops.handler']->addResourcePath(__DIR__ . '/Resources');
+		$handler = $this->app['whoops.handler'];
+
+        if($handler instanceof PrettyPageHandler)
+        {
+            $handler->addResourcePath(__DIR__ . '/Resources');
+        }
 	}
 
 	/**
