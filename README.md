@@ -15,7 +15,7 @@ Via command line :
 composer require "pingpong/whoops:1.*"
 ```
 
-After the package installed, add new service provider to your `providers`.
+After the package installed, add new service provider to your `providers` array.
 
 ```php
 	'providers' => array(
