@@ -19,12 +19,7 @@ class WhoopsServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$handler = $this->app['whoops.handler'];
-
-        if($handler instanceof PrettyPageHandler)
-        {
-            $handler->addResourcePath(__DIR__ . '/Resources');
-        }
+		WhoopsHandler::handle($this->app['whoops.handler']);
 	}
 
 	/**
