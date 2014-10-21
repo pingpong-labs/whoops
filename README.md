@@ -27,7 +27,7 @@ After the package installed, add new service provider to your `providers` array.
 	)
 ``` 
 
-Next, open terminal and publish the package's asset by run : 
+Next, open terminal and publish the package's assets by run : 
 
 ```
 php artisan asset:publish pingpong/whoops
