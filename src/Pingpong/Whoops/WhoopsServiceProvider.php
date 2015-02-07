@@ -19,6 +19,12 @@ class WhoopsServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+		$this->loadViewsFrom(__DIR__.'/Resources/views', 'whoops');
+		
+		$this->publishes([
+	        	__DIR__.'/Resources/css' => base_path('public'),
+		 ]);
+		 
 		WhoopsHandler::handle($this->app['whoops.handler']);
 	}
 
@@ -30,16 +36,6 @@ class WhoopsServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		//
-	}
-
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
 	}
 
 }
