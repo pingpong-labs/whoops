@@ -1,7 +1,7 @@
 Custom whoops error style for Laravel framework.
 ======
 
-With this package you can get the whoops errors style like the laravel's style in versions 4.0 and 4.1.
+With this package you can get the whoops errors style like the laravel's style in versions 4.0, 4.1 and 5.0.
 
 ### Preview
 
@@ -29,8 +29,14 @@ After the package installed, add new service provider to your `providers` array.
 
 Next, open terminal and publish the package's assets by run : 
 
+### Laravel4
 ```
 php artisan asset:publish pingpong/whoops
+```
+
+### Laravel5
+```
+php artisan vendor:publish pingpong/whoops
 ```
 
 Done.
