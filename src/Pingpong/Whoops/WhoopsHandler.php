@@ -10,10 +10,10 @@ class WhoopsHandler {
 	 */
 	public static function handle($handler)
 	{
-        if($handler instanceof PrettyPageHandler)
-        {
-            $handler->addResourcePath(__DIR__ . '/Resources');
-        }
+	        if($handler instanceof PrettyPageHandler)
+	        {
+	            $handler->addResourcePath(__DIR__ . '/Resources');
+	        }
 	}
 
 }
