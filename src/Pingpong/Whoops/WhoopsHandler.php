@@ -49,7 +49,7 @@ class ExceptionHandler extends Handler {
      * @param  mixed $request
      * @return mixed
      */
-    private function getResponseHandler($request)
+    protected function getResponseHandler($request)
     {
     	return $request->ajax() ? new JsonResponseHandler : new PrettyPageHandler;
     }
@@ -60,7 +60,7 @@ class ExceptionHandler extends Handler {
      * @param  mixed $handler
      * @return mixed
      */
-    private function checkForPrettyHandler($handler)
+    protected function checkForPrettyHandler($handler)
     {
     	if($handler instanceof PrettyPageHandler)
         {
