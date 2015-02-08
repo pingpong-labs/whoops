@@ -36,7 +36,7 @@ php artisan asset:publish pingpong/whoops
 
 ### Laravel5
 ```
-php artisan vendor:publish pingpong/whoops
+php artisan vendor:publish pingpong/whoops --provider="Pingpong\Whoops\WhoopsServiceProvider"
 ```
 
 Done.
