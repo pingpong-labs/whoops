@@ -43,11 +43,23 @@ class ExceptionHandler extends Handler {
         return parent::render($request, $e);
     }
     
+    /**
+     * Get response handler.
+     * 
+     * @param  mixed $request
+     * @return mixed
+     */
     private function getResponseHandler($request)
     {
     	return $request->ajax() ? new JsonResponseHandler : new PrettyPageHandler;
     }
     
+    /**
+     * Check for pretty handler.
+     * 
+     * @param  mixed $handler
+     * @return mixed
+     */
     private function checkForPrettyHandler($handler)
     {
     	if($handler instanceof PrettyPageHandler)
