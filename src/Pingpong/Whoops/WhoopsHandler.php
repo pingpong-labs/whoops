@@ -31,7 +31,14 @@ class ExceptionHandler extends Handler
     {
         if (config('app.debug')) {
             $whoops = new Run;
-            $whoops->pushHandler($request->ajax() ? new JsonResponseHandler : new PrettyPageHandler);
+            
+            $handler = $request->ajax() ? new JsonResponseHandler : new PrettyPageHandler;
+            if($handler instanceof PrettyPageHandler)
+	        {
+	            $handler->addResourcePath(__DIR__ . '/Resources');
+	        }
+	        
+            $whoops->pushHandler();
             $whoops->allowQuit(false);
             $whoops->writeToOutput(false);
 
