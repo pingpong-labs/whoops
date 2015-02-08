@@ -31,14 +31,9 @@ class ExceptionHandler extends Handler
     {
         if (config('app.debug')) {
             $whoops = new Run;
-            
-            $handler = $request->ajax() ? new JsonResponseHandler : new PrettyPageHandler;
-            if($handler instanceof PrettyPageHandler)
-	        {
-	            $handler->addResourcePath(__DIR__ . '/Resources');
-	        }
-	        
-            $whoops->pushHandler();
+            $whoops->pushHandler(
+            	$this->_checkForPrettyHandler( $this->_getResponseHandler() )
+            );
             $whoops->allowQuit(false);
             $whoops->writeToOutput(false);
 
@@ -46,6 +41,21 @@ class ExceptionHandler extends Handler
         }
 
         return parent::render($request, $e);
+    }
+    
+    private function _getResponseHandler()
+    {
+    	return $request->ajax() ? new JsonResponseHandler : new PrettyPageHandler;
+    }
+    
+    private function _checkForPrettyHandler($handler)
+    {
+    	if($handler instanceof PrettyPageHandler)
+	{
+	     $handler->addResourcePath(__DIR__ . '/Resources');
+	}
+	
+	return $handler;
     }
 
 }
