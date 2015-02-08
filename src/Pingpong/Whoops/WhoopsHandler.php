@@ -32,7 +32,7 @@ class ExceptionHandler extends Handler {
         {
             $whoops = new Run;
             $whoops->pushHandler(
-            	$this->_checkForPrettyHandler( $this->_getResponseHandler($request) )
+            	$this->checkForPrettyHandler($this->getResponseHandler($request))
             );
             $whoops->allowQuit(false);
             $whoops->writeToOutput(false);
@@ -43,12 +43,12 @@ class ExceptionHandler extends Handler {
         return parent::render($request, $e);
     }
     
-    private function _getResponseHandler($request)
+    private function getResponseHandler($request)
     {
     	return $request->ajax() ? new JsonResponseHandler : new PrettyPageHandler;
     }
     
-    private function _checkForPrettyHandler($handler)
+    private function checkForPrettyHandler($handler)
     {
     	if($handler instanceof PrettyPageHandler)
         {
