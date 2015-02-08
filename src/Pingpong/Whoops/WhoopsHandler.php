@@ -6,8 +6,7 @@ use Whoops\Handler\JsonResponseHandler;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
-class ExceptionHandler extends Handler
-{
+class ExceptionHandler extends Handler {
 
     /**
      * A list of the exception types that should not be reported.
@@ -29,7 +28,8 @@ class ExceptionHandler extends Handler
      */
     public function render($request, Exception $e)
     {
-        if (config('app.debug')) {
+        if (config('app.debug'))
+        {
             $whoops = new Run;
             $whoops->pushHandler(
             	$this->_checkForPrettyHandler( $this->_getResponseHandler($request) )
