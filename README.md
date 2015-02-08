@@ -11,8 +11,14 @@ With this package you can get the whoops errors style like the laravel's style i
 
 Via command line :
 
+Laravel 4
 ```
 composer require "pingpong/whoops:1.*"
+```
+
+Laravel 5
+```
+composer require "pingpong/whoops:2.0.*@dev"
 ```
 
 After the package installed, add new service provider to your `providers` array.
