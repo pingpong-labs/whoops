@@ -15,8 +15,8 @@
         "filp/whoops": ">=1.1.0"
     },
     "autoload": {
-        "psr-0": {
-            "Pingpong\\Whoops": "src/"
+        "psr-4": {
+            "Pingpong\\Whoops\\": "src/Pingpong/Whoops"
         }
     },
     "minimum-stability": "stable"
