@@ -1,41 +1,36 @@
 <?php namespace Pingpong\Whoops;
 
-use Whoops\Handler\PrettyPageHandler;
 use Illuminate\Support\ServiceProvider;
 
-class WhoopsServiceProvider extends ServiceProvider {
+class ServiceProvider extends ServiceProvider
+{
 
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var boolean
+     */
+    protected $defer = false;
 
-	/**
-	 * Boot the package.
-	 * 
-	 * @return void 
-	 */
-	public function boot()
-	{
-		$this->loadViewsFrom(__DIR__.'/Resources/views', 'whoops');
-		
-		$this->publishes([
-	        	__DIR__.'/Resources/css' => base_path('public'),
-		 ]);
-		 
-		WhoopsHandler::handle($this->app['whoops.handler']);
-	}
+    /**
+     * Register the service provider.
+     */
+    public function register()
+    {
+        $this->app->singleton(
+            'Illuminate\Contracts\Debug\ExceptionHandler',
+            'Pingpong\Whoops\WhoopsHandler'
+        );
+    }
 
-	/**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		//
-	}
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['Illuminate\Contracts\Debug\ExceptionHandler'];
+    }
 
 }

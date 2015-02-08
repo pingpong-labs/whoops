@@ -26,7 +26,7 @@ After the package installed, add new service provider to your `providers` array.
 
 	)
 ``` 
-
+### Laravel4
 Next, open terminal and publish the package's assets by run : 
 
 ### Laravel4
