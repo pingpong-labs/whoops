@@ -6,7 +6,7 @@ use Whoops\Handler\JsonResponseHandler;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
-class ExceptionHandler extends Handler {
+class WhoopsHandler extends Handler {
 
     /**
      * A list of the exception types that should not be reported.
